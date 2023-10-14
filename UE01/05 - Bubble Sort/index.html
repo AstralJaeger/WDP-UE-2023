@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <
+    </head>
+    <body>
+        <script>
+            
+            const isComparable = (data) => {
+                for (let i = 0; i < data.length; i++) {
+                    if (typeof data[i] !== "number" && typeof data[i] !== "string") {
+                        throw new Error("Elements must be numbers or strings.");
+                    }
+                }
+            }
+
+            const bubblesort = (data) => {
+                // Check if data is array
+                if (!Array.isArray(data)) {
+                    throw new Error("Input must be an array.");
+                }
+                
+                // Check if data contains comparable elements
+                isComparable(data);
+
+                let n = data.length;
+
+                // Actual Bubble Sort Algorithm
+                for (let i = 0; i < data.length - 1; i++) {
+                    for (let j = 0; j < data.length - i - 1; j++) {
+                        if (data[j] > data[j + 1]) {
+                            // Swap data[j] and data[j + 1]
+                            const temp = data[j];
+                            data[j] = data[j + 1];
+                            data[j + 1] = data[j];
+                        }
+                    }
+                }
+
+                return data;
+            }
+
+            let arr = [123, 31, 2, 20, 90, 942, 76, 10];
+            
+            console.log(arr);
+            bubblesort(arr);
+            console.log(arr);
+
+        </script>
+    </body>
+</html>
